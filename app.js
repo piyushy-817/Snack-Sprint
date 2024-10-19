@@ -10,3 +10,4 @@ const rooting = ReactDOM.createRoot(document.getElementById("root"));
 console.log(mamle);
 rooting.render(mamle);
 console.log(rooting);
+/*mamle is tight*/
