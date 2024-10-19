@@ -1,0 +1,26 @@
+{
+  "name": "namastereact",
+  "version": "1.0.0",
+  "description": "Just for practise",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/piyushy-817/namaste-React.git"
+  },
+  "keywords": [
+    "React",
+    "Practice"
+  ],
+  "author": "Piyush Yadav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/piyushy-817/namaste-React/issues"
+  },
+  "homepage": "https://github.com/piyushy-817/namaste-React#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}
