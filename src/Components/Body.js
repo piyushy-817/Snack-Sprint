@@ -1,18 +1,17 @@
 import { useEffect, useState } from "react";
-import Shimmer from "./Shimmer"
+import Shimmer from "./Shimmer";
 import Restcard from "./RestCard";
 import { Link } from "react-router-dom";
-import useOnlineStatus from "../utilities/useOnlineStatus";
-import useMainData from "../utilities/useMainData";
+import useOnlineStatus from "../../utilities/useOnlineStatus";
+import useMainData from "../../utilities/useMainData";
+import COmLogo from "../../utilities/com_logo.png";
 
 const Body = () => {
- /* const [listofdata, setData] = useState([]);*/
+  /* const [listofdata, setData] = useState([]);*/
   const [searchText, setsearchText] = useState("");
-  const [filteredarray, setfilteredarray] = useState([])
+  const [filteredarray, setfilteredarray] = useState([]);
 
-  
-  
- /* useEffect(() => {
+  /* useEffect(() => {
     fetchdata();
   }, []);
 
@@ -21,46 +20,51 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const myfetchedData = await data.json();*/
-   
-    
-   /* setData(
+
+  /* setData(
       myfetchedData.data.cards[1].card.card.gridElements.infoWithStyle
       .restaurants
     );*/
-    
-      debugger;
-    
- 
-    const listofdata = useMainData()
-    console.log(listofdata)
 
-    const onlineStatus = useOnlineStatus()
-    if (onlineStatus === false ) return  <h1>It seems like you are not online</h1>
-    useEffect(() => {
-      if (listofdata && listofdata.length > 0) {
-        setfilteredarray(listofdata);
-      }
-    }, [listofdata]);
-  
-    // Show shimmer while data is loading
-    if (!listofdata || listofdata.length === 0) {
-      return <Shimmer />;
+  const listofdata = useMainData();
+  console.log(listofdata);
+
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false) return <h1>It seems like you are not online</h1>;
+  useEffect(() => {
+    if (listofdata && listofdata.length > 0) {
+      setfilteredarray(listofdata);
     }
-  
+  }, [listofdata]);
+
+  // Show shimmer while data is loading
+  if (!listofdata || listofdata.length === 0) {
+    return <Shimmer />;
+  }
+
   return (
-    <div className="body">
-      <div className="searching-container">
-        <input className="inputText" value={searchText} onChange={(e)=>{
-           setsearchText(e.target.value)
-        }}></input>
-        <button onClick={()=>{
-         
-           let filteredData2 = listofdata.filter((res)=>{
-             return res.info.name.toLowerCase().includes(searchText.toLowerCase());
-            
-          });
-          setfilteredarray(filteredData2);
-        }} className="searchBtn">Search</button>
+    <div className="">
+      <div className="m-4 mt-10 justify-between">
+        <input
+          className="m-4 rounded-lg shadow-md p-1 outline-slate-400 text-slate-500 px-4 "
+          value={searchText}
+          onChange={(e) => {
+            setsearchText(e.target.value);
+          }}
+        ></input>
+        <button
+          onClick={() => {
+            let filteredData2 = listofdata.filter((res) => {
+              return res.info.name
+                .toLowerCase()
+                .includes(searchText.toLowerCase());
+            });
+            setfilteredarray(filteredData2);
+          }}
+          className="text-slate-500 py-1 px-2 mr-4 transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-110 hover:bg-red-300 border-double border-4 border-red-100 items-center rounded-xl active:bg-red-400 hover:text-white  cursor-pointer"
+        >
+          Search
+        </button>
 
         <button
           onClick={() => {
@@ -72,19 +76,26 @@ const Body = () => {
 
             setfilteredarray(filteredData);
           }}
-          className="search"
+          className="text-slate-500 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:bg-red-300 duration-200 border-double border-4 border-red-100 py-1 px-2 mr-4 rounded-xl active:bg-red-400 hover:text-white cursor-pointer"
         >
           Luxury Restaurants
         </button>
       </div>
-      <div className="res-container">
+      <div />
+
+      <div className=" ml-20 mt-20 font-caveat  underline-offset-0 text-5xl font-bold text-slate-500">
+        <span>Top Restaurants : </span>
+        
+      </div>
+
+      <div className=" mx-40 mt-20 flex flex-wrap justify-items-center ">
         {filteredarray.map((restaurant) => (
-          <Link to={`/restaurants/${restaurant.info.id}`} key={restaurant.info.id}> 
-          <Restcard
-            
-            myfetchedData={restaurant}
-          ></Restcard></Link>
-          
+          <Link
+            to={`/restaurants/${restaurant.info.id}`}
+            key={restaurant.info.id}
+          >
+            <Restcard myfetchedData={restaurant}></Restcard>
+          </Link>
         ))}
       </div>
     </div>

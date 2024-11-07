@@ -1,4 +1,4 @@
-import useRestaurantMenu from "../utilities/useRestaurantMenu";
+import useRestaurantMenu from "../../utilities/useRestaurantMenu";
 import { useParams } from "react-router-dom";
 
 const RestaurantMenu = () => {
