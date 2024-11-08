@@ -6,14 +6,14 @@ import useOnlineStatus from "../../utilities/useOnlineStatus";
 import useMainData from "../../utilities/useMainData";
 import COmLogo from "../../utilities/com_logo.png";
 import ShimmerCardList from "./ShimmerCardList";
-import { promotedRestCard } from "./RestCard";
+import { PromotedRestCard } from "./RestCard";
 
 const Body = () => {
   /* const [listofdata, setData] = useState([]);*/
   const [searchText, setsearchText] = useState("");
   const [filteredarray, setfilteredarray] = useState([]);
 
-  const newdRestCard = promotedRestCard(Restcard)
+  const NewdRestCard = PromotedRestCard(Restcard)
 
   const listofdata = useMainData();
   console.log(listofdata);
@@ -83,7 +83,7 @@ const Body = () => {
             to={`/restaurants/${restaurant.info.id}`} 
             key={restaurant.info.id}
           > 
-          {restaurant.info.avgRating < 4.3? (<newdRestCard myfetchedData = {restaurant}></newdRestCard>) : ( <Restcard myfetchedData={restaurant}></Restcard>)}
+          {restaurant.info.isOpen ? (<NewdRestCard myfetchedData = {restaurant}></NewdRestCard>) : ( <Restcard myfetchedData={restaurant}></Restcard>)}
             
            
           </Link>

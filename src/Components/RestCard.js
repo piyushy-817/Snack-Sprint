@@ -1,15 +1,7 @@
 import { restCardApi } from "../../utilities/constants";
 
-export const promotedRestCard = (Restcard) => {
-  return (props) => {
-    return (
-      <div>
-        <div>Affordable</div>
-        <Restcard {...props}></Restcard>
-      </div>
-    );
-  };
-};
+
+
 
 const Restcard = (props) => {
   const { myfetchedData } = props;
@@ -45,5 +37,15 @@ const Restcard = (props) => {
       </div>
     </div>
   );
+};
+export const PromotedRestCard = (Restcard) => {
+  return (props) => {
+    return (
+      <div>
+        <label>Affordable</label>
+        <Restcard {...props}></Restcard>
+      </div>
+    );
+  };
 };
 export default Restcard;
