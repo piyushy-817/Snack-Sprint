@@ -17,6 +17,7 @@ const Mainapp = () => {
     <div>
       <Header></Header>
       <Outlet></Outlet>
+      <Footer></Footer>
     </div>
   );
 };
@@ -43,8 +44,12 @@ const Mainroute = createBrowserRouter([
       }
     ],
     errorElement: <Errorpge></Errorpge>,
+    
   },
+  
 ]);
+
+
 
 const rooting = ReactDOM.createRoot(document.getElementById("root"));
 rooting.render(<RouterProvider router={Mainroute} />);

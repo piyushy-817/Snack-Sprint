@@ -1,7 +1,20 @@
 import { restCardApi } from "../../utilities/constants";
 
+export const promotedRestCard = (Restcard) => {
+  return (props) => {
+    return (
+      <div>
+        <div>Affordable</div>
+        <Restcard {...props}></Restcard>
+      </div>
+    );
+  };
+};
+
 const Restcard = (props) => {
   const { myfetchedData } = props;
+
+  
 
   return (
     <div className=" w-80 m-5 rounded-xl  p-4 hover:shadow-2xl hover:bg-slate-200 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110  duration-300">
@@ -19,12 +32,16 @@ const Restcard = (props) => {
           {" "}
           {myfetchedData.info.cuisines.join(", ")}
         </h4>
-        <span className="mr-2 text-slate-500"> { `Rating :  ${myfetchedData.info.avgRatingString}⭐`}</span>{" "}
+        <span className="mr-2 text-slate-500">
+          {" "}
+          {`Rating :  ${myfetchedData.info.avgRatingString}⭐`}
+        </span>{" "}
         <span className="text-slate-500">
           {myfetchedData.info.externalRatings.aggregatedRating.ratingCount
             ? `Rating Count: ${myfetchedData.info.externalRatings.aggregatedRating.ratingCount}`
             : null}
         </span>
+        
       </div>
     </div>
   );

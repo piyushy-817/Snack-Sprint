@@ -10,7 +10,6 @@ import React from "react";
     render(){
   return (
     <div>
-     
     <UserClass ></UserClass>
     </div>
   );

@@ -1,30 +1,19 @@
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
-import Restcard from "./RestCard";
+import Restcard, { promotedRestCard } from "./RestCard";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../../utilities/useOnlineStatus";
 import useMainData from "../../utilities/useMainData";
 import COmLogo from "../../utilities/com_logo.png";
+import ShimmerCardList from "./ShimmerCardList";
+import { promotedRestCard } from "./RestCard";
 
 const Body = () => {
   /* const [listofdata, setData] = useState([]);*/
   const [searchText, setsearchText] = useState("");
   const [filteredarray, setfilteredarray] = useState([]);
 
-  /* useEffect(() => {
-    fetchdata();
-  }, []);
-
-  const fetchdata = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-    const myfetchedData = await data.json();*/
-
-  /* setData(
-      myfetchedData.data.cards[1].card.card.gridElements.infoWithStyle
-      .restaurants
-    );*/
+  const newdRestCard = promotedRestCard(Restcard)
 
   const listofdata = useMainData();
   console.log(listofdata);
@@ -38,15 +27,15 @@ const Body = () => {
   }, [listofdata]);
 
   // Show shimmer while data is loading
-  if (!listofdata || listofdata.length === 0) {
-    return <Shimmer />;
+  if ( filteredarray.length === 0) {
+    return <ShimmerCardList />;
   }
 
   return (
     <div className="">
-      <div className="m-4 mt-10 justify-between">
+      <div className="m-4 mt-5 justify-between">
         <input
-          className="m-4 rounded-lg shadow-md p-1 outline-slate-400 text-slate-500 px-4 "
+          className="border-slate-300 focus:outline-none placeholder:italic placeholder:text-slate-400 m-4 rounded-lg shadow-md p-1 outline-slate-400 text-slate-500 px-4 " placeholder="Search for Restaurant..."
           value={searchText}
           onChange={(e) => {
             setsearchText(e.target.value);
@@ -83,7 +72,7 @@ const Body = () => {
       </div>
       <div />
 
-      <div className=" ml-20 mt-20 font-caveat  underline-offset-0 text-5xl font-bold text-slate-500">
+      <div className=" ml-20 mt-10 font-caveat  underline-offset-0 text-5xl font-bold text-slate-500">
         <span>Top Restaurants : </span>
         
       </div>
@@ -91,10 +80,12 @@ const Body = () => {
       <div className=" mx-40 mt-20 flex flex-wrap justify-items-center ">
         {filteredarray.map((restaurant) => (
           <Link
-            to={`/restaurants/${restaurant.info.id}`}
+            to={`/restaurants/${restaurant.info.id}`} 
             key={restaurant.info.id}
-          >
-            <Restcard myfetchedData={restaurant}></Restcard>
+          > 
+          {restaurant.info.avgRating < 4.3? (<newdRestCard myfetchedData = {restaurant}></newdRestCard>) : ( <Restcard myfetchedData={restaurant}></Restcard>)}
+            
+           
           </Link>
         ))}
       </div>
