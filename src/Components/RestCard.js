@@ -1,4 +1,4 @@
-import { restCardApi } from "../../utilities/constants";
+import { imageCdnLink } from "../../utilities/constants";
 
 
 
