@@ -2,16 +2,21 @@ import useRestaurantMenu from "../../utilities/useRestaurantMenu";
 import { useParams } from "react-router-dom";
 import RestaurantMenuShimmer from "./RestaurantMenuShimmer";
 import CatogoryItemList from "./CatogoryItemList";
+import { useState } from "react";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
   const menuData = useRestaurantMenu(resId);
+  const [showItemList , setShowItemList] =useState(0)
+
   const name = menuData?.data?.cards?.[2]?.card?.card?.info?.name;
   const locality = menuData?.data?.cards?.[2]?.card?.card?.info?.locality;
   const costForTwoMessage =
     menuData?.data?.cards?.[2]?.card?.card?.info?.costForTwoMessage;
   const cuisines =
     menuData?.data?.cards?.[2]?.card?.card?.info?.cuisines.join(",");
+
+
 
   const itemCards =
     menuData?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
@@ -81,7 +86,7 @@ const RestaurantMenu = () => {
       <div className="text-center m-auto w-6/12 ">
         {menuCategoryList && menuCategoryList.length > 0 ? (
           menuCategoryList.map((cato, index) => (
-            <CatogoryItemList key={index} data={cato.card.card} />
+            <CatogoryItemList showList={index === showItemList ? true : false} setShowItemList={()=>{setShowItemList(index)}} key={index} data={cato.card.card} />
           ))
         ) : (
           <div> No items Yet</div>

@@ -11,7 +11,7 @@ const Restcard = (props) => {
   return (
     <div className=" w-80 m-5 rounded-xl  p-4 hover:shadow-2xl hover:bg-slate-200 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110  duration-300">
       <img
-        src={restCardApi + myfetchedData.info.cloudinaryImageId}
+        src={imageCdnLink + myfetchedData.info.cloudinaryImageId}
         alt="Restaurant Logo"
         className="rounded-xl h-auto w-96"
       ></img>
@@ -38,11 +38,11 @@ const Restcard = (props) => {
     </div>
   );
 };
-export const PromotedRestCard = (Restcard) => {
+export const PromotedRestCard = (Restcard) => {  /*higher order component */
   return (props) => {
     return (
       <div>
-        <label>Affordable</label>
+        <label></label>
         <Restcard {...props}></Restcard>
       </div>
     );

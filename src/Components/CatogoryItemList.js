@@ -3,11 +3,11 @@ import MenuItemList from "./MenuItemList";
 import { FaArrowDown } from "react-icons/fa";
 import { FaArrowUp } from "react-icons/fa";
 
-const CatogoryItemList = ({ data }) => {
-  const [showList, setshowList] = useState(false);
+const CatogoryItemList = ({ data, showList , setShowItemList }) => {
+  
 
   const handleItems = () => {
-    setshowList(!showList)
+    setShowItemList(showList )
     
   };
 
