@@ -7,11 +7,13 @@ import useMainData from "../../utilities/useMainData";
 import COmLogo from "../../utilities/com_logo.png";
 import ShimmerCardList from "./ShimmerCardList";
 import { PromotedRestCard } from "./RestCard";
+import switchMode from "../../utilities/switchMode";
 
-const Body = () => {
+const Body  = () => {
   /* const [listofdata, setData] = useState([]);*/
   const [searchText, setsearchText] = useState("");
   const [filteredarray, setfilteredarray] = useState([]);
+  
 
   const NewdRestCard = PromotedRestCard(Restcard);
 
@@ -25,13 +27,14 @@ const Body = () => {
     }
   }, [listofdata]);
 
+
   // Show shimmer while data is loading
   if (filteredarray.length === 0) {
     return <ShimmerCardList />;
   }
 
   return (
-    <div className="">
+    <div >
       <div className="m-4 mt-5 justify-between">
         <input
           className="border-slate-300 focus:outline-none placeholder:italic placeholder:text-slate-400 m-4 rounded-lg shadow-md p-1 outline-slate-400 text-slate-500 px-4 "
@@ -69,6 +72,7 @@ const Body = () => {
         >
           Luxury Restaurants
         </button>
+        
       </div>
       <div />
 

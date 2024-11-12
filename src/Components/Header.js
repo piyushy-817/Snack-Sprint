@@ -65,8 +65,8 @@ const Navitems = () => {
           className="ml-6 m-4 font-bold px-3 py-2 active:text-slate-100 text-slate-500 rounded-lg hover:bg-slate-100  active:bg-red-400 hover:text-slate-900"
         >
           {loginbuttonvar}
-        </button>
-        <div>
+        </button >
+        <div className="absolute ml-[500px]  text-slate-700 opacity-50 mt-16">
         User: {datata.loginUserinfo}
 
          

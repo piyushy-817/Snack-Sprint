@@ -1,13 +1,15 @@
+import { useContext } from "react";
 import { imageCdnLink } from "../../utilities/constants";
+import UserContext from "../../utilities/UserContext";
 
 
 
 
 const Restcard = (props) => {
   const { myfetchedData } = props;
-
+ const ContextData = useContext(UserContext)
   
-
+ 
   return (
     <div className=" w-80 m-5 rounded-xl  p-4 hover:shadow-2xl hover:bg-slate-200 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110  duration-300">
       <img
@@ -33,6 +35,9 @@ const Restcard = (props) => {
             ? `Rating Count: ${myfetchedData.info.externalRatings.aggregatedRating.ratingCount}`
             : null}
         </span>
+        <div>
+          User : {ContextData.loginUserinfo}
+        </div>
         
       </div>
     </div>

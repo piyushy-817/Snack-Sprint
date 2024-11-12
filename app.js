@@ -9,13 +9,16 @@ import Footer from "./src/Components/Footer";
 import Contact from"./src/Components/Contact";
 import About from "./src/Components/About";
 import RestaurantMenu from "./src/Components/RestaurantMenu";
+import UserContext from "./utilities/UserContext";
 
 
 
 const Mainapp = () => {
   return (
     <div>
+      <UserContext.Provider value={{loginUserinfo : "Mohit Yadav"}}>
       <Header></Header>
+      </UserContext.Provider>
       <Outlet></Outlet>
       <Footer></Footer>
     </div>
