@@ -1,12 +1,21 @@
+import { addItem } from "../../utilities/cartSlice";
 import { imageCdnLink } from "../../utilities/constants";
+import { useDispatch } from "react-redux";
 
 const MenuItemList = ({ itemData }) => {
+ const dispatch = useDispatch ()
+  const handleAddItem = (e)=>{
+    dispatch(addItem(e))
+  }
+ 
+
+
   return (
     <div>
-      {itemData.map((e) => {
+      {   itemData.map((e) => {
         return (
           <div
-            className="cursor-pointer text-left shadow-md rounded-lg bg-slate-100 shadow-gray-200 p-4 m-4 flex  border-b-2 border-gray-300"
+            className=" text-left shadow-md rounded-lg bg-slate-100 shadow-gray-200 p-4 m-4 flex  border-b-2 border-gray-300"
             key={e.card.info.id}
           >
             <div className="w-10/12">
@@ -18,7 +27,7 @@ const MenuItemList = ({ itemData }) => {
             </div>
 
             <div className="ml-4 w-2/12 ">
-            <div className= " text-sm font-manrope px-2 py-0.5 ml-8 mt-2 absolute rounded-lg text-white bg-slate-700">Add + </div>
+            <div onClick={()=>handleAddItem(e)} className= "cursor-pointer text-sm font-manrope px-2 py-0.5 ml-8 mt-2 absolute rounded-lg text-white bg-slate-700">Add + </div>
             <img
               className="w-28 rounded-lg"
               src={imageCdnLink + e.card.info.imageId}

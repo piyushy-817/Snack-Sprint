@@ -10,17 +10,22 @@ import Contact from"./src/Components/Contact";
 import About from "./src/Components/About";
 import RestaurantMenu from "./src/Components/RestaurantMenu";
 import UserContext from "./utilities/UserContext";
+import { Provider } from "react-redux";
+import  appStore from "./utilities/appStore";
+import Cart from "./src/Components/Cart";
 
 
 
 const Mainapp = () => {
   return (
-    <div>
-      <UserContext.Provider value={{loginUserinfo : "Mohit Yadav"}}>
+    <div className=" min-h-screen">
+      <Provider store={appStore}>
+      <UserContext.Provider value={{loginUserinfo : "Piyush_Yadav_"}}>
       <Header></Header>
       </UserContext.Provider>
       <Outlet></Outlet>
       <Footer></Footer>
+      </Provider>
     </div>
   );
 };
@@ -44,6 +49,9 @@ const Mainroute = createBrowserRouter([
       },{
         path: "/restaurants/:resId",
         element: <RestaurantMenu/>,
+      },{
+        path: "/cart",
+        element: <Cart></Cart>,
       }
     ],
     errorElement: <Errorpge></Errorpge>,

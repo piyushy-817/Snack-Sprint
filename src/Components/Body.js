@@ -34,8 +34,8 @@ const Body  = () => {
   }
 
   return (
-    <div >
-      <div className="m-4 mt-5 justify-between">
+    <div className="flex-grow" >
+      <div className=" m-4 mt-5 justify-between">
         <input
           className="border-slate-300 focus:outline-none placeholder:italic placeholder:text-slate-400 m-4 rounded-lg shadow-md p-1 outline-slate-400 text-slate-500 px-4 "
           placeholder="Search for Restaurant..."

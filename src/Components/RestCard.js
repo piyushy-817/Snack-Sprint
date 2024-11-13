@@ -35,9 +35,7 @@ const Restcard = (props) => {
             ? `Rating Count: ${myfetchedData.info.externalRatings.aggregatedRating.ratingCount}`
             : null}
         </span>
-        <div>
-          User : {ContextData.loginUserinfo}
-        </div>
+        
         
       </div>
     </div>
