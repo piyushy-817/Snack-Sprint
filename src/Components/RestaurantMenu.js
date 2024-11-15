@@ -34,12 +34,8 @@ const RestaurantMenu = () => {
     menuData?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
       ?.card.itemCards;
 
-  /* const {
-    name: cheeseBurstOfferName,
-    description: cheeseBurstOfferDescription,
-    defaultPrice: cheeseBurstOfferDefaultPrice,
-  } = menuData?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[3]
-    ?.card?.card.itemCards[0].info || [ ] ;*/
+ 
+    
 
   const menuCategoryList =
     menuData?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
@@ -82,9 +78,9 @@ const RestaurantMenu = () => {
               </h3>
             ))
           ) : (
-            <p>Loading menu items...</p>
+            <div className="text-center font-sans font-semibold text-slate-600 ">Loading menu items...</div>
           )}
-        </ul>{" "}
+        </ul>
       </div>
 
       <div className="mt-10 px-20 py-10">
@@ -102,7 +98,7 @@ const RestaurantMenu = () => {
             <CatogoryItemList showList={index === showItemList ? true : false} setShowItemList={()=>{setShowItemList(index)}} key={index} data={cato.card.card} />
           ))
         ) : (
-          <div> No items Yet</div>
+          <div  className="text-center font-sans font-semibold text-slate-600 text-2xl"> No items Yet</div>
         )}
       </div>
 

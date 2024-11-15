@@ -11,7 +11,7 @@ import { FaUser } from "react-icons/fa";
 const Header = () => {
   return (
     <div>
-      <div className="shadow-lg flex m-4 h-32 p-6 justify-between items-center rounded-lg  bg-red-100 relative">
+      <div className="shadow-lg flex  h-32 p-6 justify-between items-center rounded-lg  bg-red-100 relative">
         <Comlogo className=""></Comlogo>
         <Navitems></Navitems>
       </div>
