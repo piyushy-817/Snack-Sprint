@@ -1,13 +1,10 @@
-import { useContext } from "react";
 import { imageCdnLink } from "../../utilities/constants";
-import UserContext from "../../utilities/UserContext";
 
 const Restcard = ({ myfetchedData }) => {
-  const ContextData = useContext(UserContext);
 
   return (
     <div
-      className="w-80 m-5 rounded-xl  p-4 hover:shadow-2xl hover:bg-slate-200 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110  duration-300"
+       data-testid ="resCard" className="w-80 m-5 rounded-xl  p-4 hover:shadow-2xl hover:bg-slate-200 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110  duration-300"
     >
       <img
         src={imageCdnLink + myfetchedData.info.cloudinaryImageId}
@@ -37,18 +34,21 @@ const Restcard = ({ myfetchedData }) => {
             : null}
         </span>
       </div>
+      <div className="text-center mt-2">{myfetchedData.info.sla.slaString}</div>
     </div>
   );
 };
-export const PromotedRestCard = (Restcard) => {
-  /*higher order component */
-  return (props) => {
+export const PromotedRestCard = (RestCard) => {
+  return ({ myfetchedData, ...props }) => {
     return (
-      <div>
-        <label></label>
-        <Restcard {...props}></Restcard>
+      <div className="relative">
+        <span className="absolute top-2 right-2 bg-yellow-500 text-white px-2 py-1 rounded-xl text-xs font-semibold">
+          Highest Rated
+        </span>
+        <RestCard myfetchedData = {myfetchedData} />
       </div>
     );
   };
 };
+
 export default Restcard;

@@ -14,7 +14,7 @@ const MenuItemList = ({ itemData }) => {
     <div>
       {   itemData.map((e) => {
         return (
-          <div
+          <div data-testid= " itemList"
             className=" text-left shadow-md rounded-lg bg-slate-100 shadow-gray-200 p-4 m-4 flex  border-b-2 border-gray-300"
             key={e.card.info.id}
           >
@@ -27,7 +27,7 @@ const MenuItemList = ({ itemData }) => {
             </div>
 
             <div className="ml-4 w-2/12 ">
-            <div onClick={()=>handleAddItem(e)} className= "cursor-pointer text-sm font-manrope px-2 py-0.5 ml-8 mt-2 absolute rounded-lg text-white bg-slate-700">Add + </div>
+            <button onClick={()=>handleAddItem(e)} className= "cursor-pointer text-sm font-manrope px-2 py-0.5 ml-8 mt-2 absolute rounded-lg text-white bg-slate-700">Add +</button>
             <img
               className="w-28 rounded-lg"
               src={imageCdnLink + e.card.info.imageId}

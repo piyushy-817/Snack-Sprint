@@ -32,7 +32,7 @@ const Comlogo = () => {
 const Navitems = () => {
   const datata = useContext(UserContext);
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
+  
 
   let initialVal = "Login";
   let newinitialval = "Logout";
@@ -59,11 +59,12 @@ const Navitems = () => {
         <li className=" m-4 font-bold px-3 py-2 active:text-slate-100 text-slate-500 rounded-lg hover:bg-slate-100 active:bg-red-400 hover:text-slate-900">
           <Link to={"/Cart"}>
             <div className="inline-flex items-center">
-              {" "}
+              
               <span className="text-lg mr-2">
                 <RiShoppingCartFill />
               </span>
-              {cartItems.length}
+              <span>{cartItems.length}</span>
+              
             </div>
           </Link>
         </li>

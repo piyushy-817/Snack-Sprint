@@ -21,7 +21,7 @@ const useMainData = ()=>{
       
        
        setData(
-         myfetchedData.data.cards[1].card.card.gridElements.infoWithStyle
+         myfetchedData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
          .restaurants
        );
      

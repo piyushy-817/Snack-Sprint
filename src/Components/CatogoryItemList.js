@@ -12,7 +12,7 @@ const CatogoryItemList = ({ data, showList , setShowItemList }) => {
   };
 
   return (
-    <div className="items-center text-center ">
+    <div  className=" items-center text-center ">
 
 
         

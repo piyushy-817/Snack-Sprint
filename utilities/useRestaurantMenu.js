@@ -22,7 +22,7 @@ const useRestaurantMenu = (resId)=>{
       setMenuData(JSon);
     };
   
-   console.log(menuData)
+   
 
    return menuData;
 }
