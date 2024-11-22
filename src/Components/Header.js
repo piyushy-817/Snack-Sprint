@@ -7,11 +7,13 @@ import { useSelector } from "react-redux";
 import Cart from "./Cart";
 import { RiShoppingCartFill } from "react-icons/ri";
 import { FaUser } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const isDarkMode = useSelector((state) => state.theme.isDarkMode);
   return (
-    <div>
-      <div className="shadow-lg flex  h-32 p-6 justify-between items-center rounded-lg  bg-red-100 relative">
+    <div >
+      <div className="shadow-lg flex  h-32 p-6 justify-between items-center  dark:bg-customLight  bg-red-100 relative">
         <Comlogo className=""></Comlogo>
         <Navitems></Navitems>
       </div>
@@ -40,25 +42,25 @@ const Navitems = () => {
   const onlineStatus = useOnlineStatus();
   return (
     <div>
-      <ul className="flex pr-20 ">
+      <ul className="flex pr-20 dark:text-white ">
         <Link to="/">
-          <li className=" m-4 font-bold px-3 py-2 active:text-slate-100 text-slate-500 rounded-lg hover:bg-slate-100  active:bg-red-400 hover:text-slate-900">
+          <li className=" dark:text-white dark:hover:text-slate-800  m-4 font-bold px-3 py-2 active:text-slate-100 text-slate-500 rounded-lg hover:bg-slate-100  active:bg-red-400 hover:text-slate-900">
             Home
           </li>
         </Link>
         <Link to="/contact">
-          <li className="m-4 font-bold px-3 py-2 active:text-slate-100 text-slate-500 rounded-lg hover:bg-slate-100 active:bg-red-400 hover:text-slate-900">
+          <li className=" dark:text-white dark:hover:text-slate-800 m-4 font-bold px-3 py-2 active:text-slate-100 text-slate-500 rounded-lg hover:bg-slate-100 active:bg-red-400 hover:text-slate-900">
             Contact Us
           </li>
         </Link>
         <Link to="/about">
-          <li className="m-4 font-bold px-3 py-2 active:text-slate-100 text-slate-500 rounded-lg hover:bg-slate-100 active:bg-red-400 hover:text-slate-900">
+          <li className=" dark:text-white dark:hover:text-slate-800 m-4 font-bold px-3 py-2 active:text-slate-100 text-slate-500 rounded-lg hover:bg-slate-100 active:bg-red-400 hover:text-slate-900">
             About Us
           </li>
         </Link>
-        <li className=" m-4 font-bold px-3 py-2 active:text-slate-100 text-slate-500 rounded-lg hover:bg-slate-100 active:bg-red-400 hover:text-slate-900">
+        <li className=" dark:text-white dark:hover:text-slate-800  m-4 font-bold px-3 py-2 active:text-slate-100 text-slate-500 rounded-lg hover:bg-slate-100 active:bg-red-400 hover:text-slate-900">
           <Link to={"/Cart"}>
-            <div className="inline-flex items-center">
+            <div className=" dark:text-white dark:hover:text-slate-800 inline-flex items-center">
               
               <span className="text-lg mr-2">
                 <RiShoppingCartFill />
@@ -74,15 +76,15 @@ const Navitems = () => {
               ? setloginbuttonvar("Logout")
               : setloginbuttonvar("Login");
           }}
-          className="ml-6 m-4 font-bold px-3 py-2 active:text-slate-100 text-slate-500 rounded-lg hover:bg-slate-100  active:bg-red-400 hover:text-slate-900"
+          className="ml-6 m-4 dark:text-white dark:hover:text-slate-800  font-bold px-3 py-2 active:text-slate-100 text-slate-500 rounded-lg hover:bg-slate-100  active:bg-red-400 hover:text-slate-900"
         >
           {loginbuttonvar}
         </button>
-        <div className="absolute ml-[500px]  text-slate-700 opacity-50 mt-16">
+        <div className="absolute ml-[500px] dark:text-white dark:hover:text-slate-800   text-slate-700 opacity-50 mt-16">
          {loginbuttonvar === "Login" ? ( <div></div>)   :<div className="inline-flex text-center"><FaUser />  <span className="ml-2 ">{datata.loginUserinfo}</span></div>   } 
         </div>
       </ul>
-      <div className="m-4 ml-10 absolute  top-0 right-0 pb-5 text-slate-700 opacity-50">
+      <div className=" dark:text-white dark:hover:text-slate-800 m-4 ml-10 absolute  top-0 right-0 pb-5 text-slate-700 opacity-50">
         Online Status : {onlineStatus ? "🟩" : "🟥"}
       </div>
     </div>

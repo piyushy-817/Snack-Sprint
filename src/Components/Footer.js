@@ -3,23 +3,25 @@ import { Link } from "react-router-dom";
 import About from "./About";
 import Contact from "./Contact";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const Footer = () => {
+  const isDarkMode = useSelector((state) => state.theme.isDarkMode);
   return (
     <div>
-      <div  className="align-middle text-center justify-center h-60  bg-red-400 shadow-inner">
-        <div className=" mt-2 p-12 text-center  text-slate-100 font-manrope text-2xl">Get More Offers, To get the best Taste in Town</div>
+      <div  className="align-middle text-center justify-center h-60 dark:bg-customLight  bg-red-400 shadow-inner">
+        <div className="  p-12 text-center  text-slate-100 font-manrope text-2xl">Get More Offers, To get the best Taste in Town</div>
         <button className= " h-10 w-44 text-slate-500 bg-white py-1 px-2 mr-4 transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-110 hover:bg-red-300 border-double border-4 border-red-100 items-center rounded-xl active:bg-red-400 hover:text-white  cursor-pointer">Offers</button>
       </div>
 
-      <div className=" items-center  rounded-xl space-x-80 m-4 p-10 pt-30 flex">
+      <div className=" items-center dark:bg-slate-700 dark:text-white  space-x-80  p-10 pt-30 flex">
         <div className=" items-center">
           <img className="w-40" src={COmLogo}></img>
           <div className=" mt-2 text-2xl">
-            <span className="text-3xl text-red-600 font-bold font-charm text-2xl">
+            <span className="text-3xl text-red-600 font-bold font-charm ">
               Snack
             </span>{" "}
-            <span className="text-slate-700">Sprint</span>{" "}
+            <span className="text-slate-700 dark:text-slate-400">Sprint</span>{" "}
           </div>
           <p className="mt-4 text-center w-80 text-wrap">
             Sprint Snack is a fast and convenient food delivery app designed to

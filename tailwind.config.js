@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        customLight: 'rgb(90, 56, 56)',  // Custom RGB color
+      },
       fontFamily: {
         mono: ['"Roboto Mono"', 'monospace'], 
         ubuntu: ['Ubuntu', 'sans-serif'],

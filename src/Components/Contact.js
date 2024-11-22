@@ -1,11 +1,13 @@
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const Contact = () => {
+  const isDarkMode = useSelector((state) => state.theme.isDarkMode);
   return (
-    <div className=" items-center mt-20">
-      <h1 className="font-manrope  text-center font-bold text-slate-600 text-5xl" > Contact Us</h1>
+    <div className=" items-center dark:text-slate-200 dark:bg-slate-700 pt-20">
+      <h1 className="font-manrope  text-center font-bold text-slate-600 dark:text-slate-200  text-5xl" > Contact Us</h1>
       
-      <p className=" mt-20 w-[800px] text-center  ml-96">
+      <p className=" pt-20 w-[800px] text-center  ml-96">
         freestar Lorem Ipsum is simply dummy text of the printing and
         typesetting industry. Lorem Ipsum has been the industry's standard dummy
         text ever since the 1500s, when an unknown printer took a galley of type
@@ -26,7 +28,7 @@ const Contact = () => {
         like).
       </p>
 
-      <div className="text-center mt-20 mb-20  ml-[650px] items-center  flex space-x-10 text-xl">
+      <div className="text-center mt-20 pb-20  ml-[650px] items-center  flex space-x-10 text-xl">
         <FaFacebook className=" cursor-pointer text-center text-6xl"></FaFacebook>
         <FaInstagram className=" cursor-pointer text-6xl"></FaInstagram>
         <FaTwitter className=" cursor-pointer text-6xl"></FaTwitter>

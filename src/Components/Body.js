@@ -8,21 +8,26 @@ import ShimmerCardList from "./ShimmerCardList";
 import { PromotedRestCard } from "./RestCard";
 import { GiNightSleep } from "react-icons/gi";
 import { GoSun } from "react-icons/go";
+import { toggleTheme } from "../../utilities/themeSlice";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+
+
 
 const Body = () => {
-  /* const [listofdata, setData] = useState([]);*/
+  
   const [searchText, setsearchText] = useState("");
   const [filteredarray, setfilteredarray] = useState([]);
+     
+  const isDarkMode = useSelector((state) => state.theme.isDarkMode);
+  const dispatch = useDispatch();
 
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const handleToggle = () => {
-    if (isDarkMode === false) {
-      setIsDarkMode(true);
-    } else {
-      setIsDarkMode(false);
-    }
+  const handleThemeToggle = () => {
+    dispatch(toggleTheme());
+    // Toggle the dark class on the <html> element
+    document.documentElement.classList.toggle("dark", !isDarkMode);
   };
+  
 
   const NewdRestCard = PromotedRestCard(Restcard);
 
@@ -42,7 +47,7 @@ const Body = () => {
   
 
   return (
-    <div className={`${isDarkMode ? "bg-gray-900" : "bg-white"} flex-grow`}>
+    <div className={`${isDarkMode ? "bg-gray-700"  : "bg-white"} flex-grow `}>
       <div // Apply bg color based on the dark mode state
       >
         <input
@@ -88,7 +93,7 @@ const Body = () => {
         </button>
         <button
           className=" rounded-full p-2 shadow-lg ml-[1400px] bg-red-100"
-          onClick={handleToggle}
+          onClick={handleThemeToggle}
         >
           {isDarkMode ? (
             <div className="  text-3xl">
@@ -104,7 +109,7 @@ const Body = () => {
       <div />
 
       <div className="justify-between ">
-        <span className=" ml-20 mt-20 font-caveat  underline-offset-0 text-5xl font-bold text-slate-500">
+        <span className=" ml-20 mt-20 dark:text-white font-caveat  underline-offset-0 text-5xl font-bold text-slate-500">
           Top Restaurants :{" "}
         </span>
       </div>
