@@ -20,6 +20,7 @@ const useMainData = ()=>{
         const myfetchedData = await data.json()
       
        
+        
        setData(
          myfetchedData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
          .restaurants
