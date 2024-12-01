@@ -48,8 +48,8 @@ const Body = () => {
 
   return (
     
-      <div className={`${isDarkMode ? "bg-gray-700" : "bg-white"} flex-grow`}>
-        <div>
+      <div className={`${isDarkMode ? "bg-gray-700" : "bg-white"} `}>
+        <div className="">
           <input
             data-testid="inputArea"
             className="border-slate-300 focus:outline-none placeholder:italic placeholder:text-slate-400 m-4 rounded-lg shadow-md p-1 outline-slate-400 text-slate-500 px-4"
@@ -104,7 +104,7 @@ const Body = () => {
           </span>
         </div>
     
-        <div className="mx-40 mt-20 flex flex-wrap justify-items-center">
+        <div className="md:mx-40  mt-20 flex flex-col md:flex-wrap md:flex-row justify-items-center">
           {filteredarray.map((restaurant) => (
             <Link to={`/restaurants/${restaurant.info.id}`} key={restaurant.info.id}>
               {restaurant.info.avgRating > 4.5 ? (

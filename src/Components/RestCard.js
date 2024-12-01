@@ -7,7 +7,7 @@ const Restcard = ({ myfetchedData }) => {
   return (
     <div
   data-testid="resCard"
-  className="dark:text-white dark:hover:bg-slate-600 w-80 m-5 rounded-xl p-4 hover:shadow-2xl hover:bg-slate-200 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300"
+  className="dark:text-white dark:hover:bg-slate-600 md:w-80 w-40 md:m-5 m-1 rounded-xl p-4 hover:shadow-2xl hover:bg-slate-200 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300"
 >
   <img
     src={imageCdnLink + myfetchedData.info.cloudinaryImageId}
