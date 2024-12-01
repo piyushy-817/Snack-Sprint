@@ -27,20 +27,21 @@ class UserClass extends React.Component {
 
     return (
       <div>
-        <div className="pb-4 mb-6 mt-10  text-center font-manrope font-bold text-slate-600 text-5xl border-b-2 border-red-300">About Page</div>
-        <div className=" mt-4 mb-10 flex justify-center items-center ">
-          <div className="mt-4 mb-4  shadow-lg shadow-slate-400 rounded-2xl  h-auto w-[500px]">
-            <div className="flex justify-center">
-              <img className="items-center rounded-2xl  " src={avatar_url}></img>
-            </div>
-            <div className="text-center mt-4">
-              <h4 className="font-semibold font-caveat text-6xl">{name}</h4>
-              <h6 className="mt-2 text-xl text-slate-600">{bio}</h6>
-              <h6 className="mt-2 text-2xl text-red-400">Founder of Snack Sprint</h6>
-            </div>
+      <div className="pb-4 mb-6 mt-10  text-center font-manrope font-bold text-slate-600 text-5xl border-b-2 border-red-300">About Page</div>
+      <div className=" mt-4 mb-10 flex justify-center items-center ">
+        <div className="mt-4 mb-4  shadow-lg shadow-slate-400 rounded-2xl  h-auto w-[500px]">
+          <div className="flex justify-center">
+            <img className="items-center rounded-2xl  " src={avatar_url}></img>
+          </div>
+          <div className="text-center mt-4">
+            <h4 className="font-semibold font-caveat text-6xl">{name}</h4>
+            <h6 className="mt-2 text-xl text-slate-600">{bio}</h6>
+            <h6 className="mt-2 text-2xl text-red-400">Founder of Snack Sprint</h6>
           </div>
         </div>
       </div>
+    </div>
+    
     );
   }
 }

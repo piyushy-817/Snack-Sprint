@@ -26,6 +26,7 @@ const CatogoryItemList = ({ data, showList , setShowItemList }) => {
         {showList && <MenuItemList itemData={data.itemCards}></MenuItemList>}
       </div>
     </div>
+
   );
 };
 

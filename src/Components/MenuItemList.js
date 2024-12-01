@@ -12,9 +12,9 @@ const MenuItemList = ({ itemData }) => {
 
   return (
     <div>
-      {   itemData.map((e) => {
-        return (
-          <div data-testid= " itemList"
+  {itemData.map((e) => {
+    return (
+      <div data-testid= " itemList"
             className=" text-left shadow-md rounded-lg bg-slate-100 shadow-gray-200 p-4 m-4 flex  border-b-2 border-gray-300"
             key={e.card.info.id}
           >
@@ -37,6 +37,7 @@ const MenuItemList = ({ itemData }) => {
         );
       })}
     </div>
+
   );
 };
 
